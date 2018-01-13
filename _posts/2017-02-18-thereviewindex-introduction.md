@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: TheReviewIndex | Unbiased User Review Summaries | Monochrome
 description: This is an introduction to thereviewindex.com.
