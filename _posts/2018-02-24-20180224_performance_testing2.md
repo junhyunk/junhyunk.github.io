@@ -1,9 +1,9 @@
 ---
 layout: post
 comments: true
-title: asdf
-description: asdf
-header: asdf
+title: 성능테스트 Part 2
+description: 성능테스트 Part 2
+header: 성능테스트 Part 2
 ---
 
 ### Part 2 를 읽고 성능테스트시 어떤 작업들이 필요한지 정리하시오. (Word 2 page 분량)

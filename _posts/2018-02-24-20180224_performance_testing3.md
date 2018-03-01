@@ -1,9 +1,9 @@
 ---
 layout: post
 comments: true
-title: asdf
-description: asdf
-header: asdf
+title: 성능테스트 Part 3
+description: 성능테스트 Part 3
+header: 성능테스트 Part 3
 ---
 
 ### Part 3 를 읽고 테스트 환경에 대해 정리하시오. (Word 1 page 분량)
