@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import mainImage from "../assets/main.png";
+---
+
+<div class="h-screen overflow-hidden bg-[color:--main-bg]">
+  <Image
+    src={mainImage}
+    alt="메인 식 이미지"
+    class="h-full w-full object-cover"
+  />
+  <div
+    class="absolute bottom-20 left-0 w-full pb-8 text-[color:--header-font-color]"
+  >
+    <div
+      class="font-AlexBrush flex w-full flex-col items-center justify-center text-7xl font-normal"
+    >
+      <p>Happily</p><p>Ever</p><p>After</p>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-full pb-8 text-[color:--header-font-color]"
+  >
+    <p class="flex flex-col items-center justify-center text-lg font-normal">
+      <span>2025년 4월 26일 토요일 12:00</span>
+      <span class="text-base font-medium">역삼 파크루안 가든웨딩</span>
+    </p>
+  </div>
+</div>
