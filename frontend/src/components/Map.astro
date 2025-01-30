@@ -1,0 +1,188 @@
+
+<!-- Kakao Map을 표시할 영역 -->
+
+
+<section class="fade-in flex flex-col items-center justify-center gap-1 py-10">
+    <span class="text-sm font-light text-slate-400">location</span>
+    <p class="text-xl font-medium">오시는 길</p>
+    <h2 class=" py-3 text-center text-base">파크루안 역삼점 B1 가든웨딩</h2>
+    <p class="text-sm font-light ">서울시 강남구 역삼동 726번지 아세아타워B1
+        <button onclick="copyAddress()" class="inline-block align-middle w-4 h-4 pb-5 ">
+        <img id="copyIcon" src="/src/assets/icon/copy.png" alt="복사" > 
+    </button></p>
+    <p class="text-sm font-light pb-3">(도로명주소 : 서울시 강남구 논현로 430)</p>
+    <div id="map" class="w-full h-96 p-10"></div>
+    <div class="flex justify-center gap-3 mt-3">
+        <!-- 네이버 지도 -->
+        <a href="https://map.naver.com/v5/directions/-/14137938.9069623,4507370.6303038,%ED%8C%8C%ED%81%AC%EB%A3%A8%EC%95%88%20%EC%97%AD%EC%82%BC%EC%A0%90,B1%20%EA%B0%80%EB%93%A0%EC%9B%A8%EB%94%A9,18703260,PLACE_POI/-/transit?c=15,0,0,0,dh"
+           target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-green-600 hover:border-green-500 transition">
+            <img src="/src/assets/icon/navermap.png" alt="네이버 지도" class="w-5 h-5"> 네이버 지도
+        </a>
+
+        <!-- 카카오 내비 -->
+        <a href="https://map.kakao.com/link/to/파크루안 역삼점,37.499052,127.038348"
+           target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-yellow-600 hover:border-yellow-500 transition">
+            <img src="/src/assets/icon/kakaomap.svg" alt="카카오 내비" class="w-5 h-5"> 카카오 내비
+        </a>
+
+        <!-- 티맵 -->
+        <a href="https://tmap.life/72a7570c"
+           target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-blue-600 hover:border-blue-500 transition">
+            <img src="/src/assets/icon/tmap.svg" alt="티맵" class="w-5 h-5"> 티맵
+        </a>
+    </div>
+    <div class="w-full max-w-xl">
+        <!-- 교통수단 카드 -->
+        <div class="flex flex-col gap-4  mb-5">
+
+            <div class="p-4 rounded-lg ">
+                <div class="flex items-center">
+                    <h4 class="text-gray-700 font-medium">🚗ㅤ자가용</h4>
+                </div>
+                <p class="text-sm text-gray-600 pl-5">
+                    ㅤ아세아타워 건물 내 주차 가능 (3시간 무료)
+                </p>
+                <div class="pb-3"></div>
+                <div class="flex items-center">
+                    <h4 class="text-gray-700 font-medium">🚆ㅤ지하철</h4>
+                </div>
+                <p class="text-sm text-gray-600 pl-5">
+                    ㅤ2호선 역삼역 1번 출구에서 도보 3분이내
+                </p>
+                <div class="pb-3"></div>
+                <div class="flex items-center">
+                    <h4 class="text-gray-700 font-medium">🚎ㅤ버스 </h4>
+                </div>
+                <p class="text-sm text-gray-600 pl-5">
+                    ㅤ간선 147, 242, 463 / 지선 4211
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+<script>
+    
+  function loadKakaoMap() {
+
+    const script = document.createElement("script");
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=629654136b8eb7b85dcb511f906025bd&autoload=false&libraries=services`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      //console.log("✅ Kakao Map API 로드 완료");
+
+      // 🚨 API 수동 초기화 후 initMap 실행
+      window.kakao.maps.load(() => {
+        initMap();
+      });
+    };
+
+    document.head.appendChild(script);
+  }
+
+  function initMap() {
+    //console.log("📌 initMap() 실행됨");
+
+    if (!window.kakao || !window.kakao.maps) {
+      console.error("🚨 Kakao 지도 API가 아직 로드되지 않음!");
+      return;
+    }
+
+    const container = document.getElementById("map");
+
+    if (!container) {
+      //console.error("🚨 #map 요소가 존재하지 않음!");
+      return;
+    }
+
+    
+
+    // 🚨 API가 완전히 로드된 후 LatLng 생성
+    //const center = new window.kakao.maps.LatLng(37.499052, 127.038348);
+    //const options = {
+      //center: center,
+      //level: 3,
+    //};
+
+
+
+    //new window.kakao.maps.Map(container, options);
+
+    const targetPosition = new window.kakao.maps.LatLng(37.499052, 127.038348);
+
+    const options = {
+      center: targetPosition, // 지도 중심을 마커 위치로 설정
+      level: 3,
+    };
+
+    const map = new window.kakao.maps.Map(container, options);
+
+    var content = `
+  <div class="relative flex flex-col items-center p-3 bg-white border-2 border-blue-500 rounded-lg shadow-md">
+    <a href="https://naver.me/xGIPsKqC" target="_blank" class="flex items-center gap-2">
+      <!-- 왼쪽에 반지 아이콘 (더 크게) -->
+      <span class="text-2xl">💍</span>
+
+      <!-- 텍스트를 두 줄로 정렬 -->
+      <div class="flex flex-col leading-tight">
+        <span class="text-blue-500 text-sm font-semibold text-base text-center">파크루안 역삼점</span>
+        <span class="text-gray-500 text-sm font-light text-center">B1 가든웨딩</span>
+      </div>
+    </a>
+    <!-- 말풍선 아래 뾰족한 부분 -->
+    <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 
+                border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-blue-500">
+    </div>
+  </div>
+`;
+
+    // 커스텀 오버레이가 표시될 위치입니다 
+    var position = new kakao.maps.LatLng(37.499052, 127.038348);
+
+    // 커스텀 오버레이를 생성합니다
+    var customOverlay = new kakao.maps.CustomOverlay({
+        map: map,
+        position: position,
+        content: content,
+        yAnchor: 1 
+    });
+
+
+  }
+    loadKakaoMap();
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        function copyAddress() {
+        const address = "서울시 강남구 역삼동 726번지 아세아타워B1";
+        navigator.clipboard.writeText(address).then(() => {
+            const copyIcon = document.getElementById("copyIcon");
+            copyIcon.src = "/src/assets/icon/check.png";  
+            copyIcon.alt = "복사 완료";
+
+             
+            setTimeout(() => {
+            copyIcon.src = "/src/assets/icon/copy.png";
+            copyIcon.alt = "복사";
+            }, 1500);
+        }).catch(err => {
+            console.error("복사 실패:", err);
+            alert("복사에 실패했습니다. 다시 시도해주세요.");
+        });
+        }
+
+        window.copyAddress = copyAddress;
+  });
+
+
+</script>
+
+<style>
+  #map {
+    width: 100%;
+    height: 400px;
+  }
+
+</style>
