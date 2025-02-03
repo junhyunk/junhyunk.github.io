@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image, getImage } from "astro:assets";
+import saveTheDate from "../assets/savethedate.png";
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*/*");
 const imagePaths = Object.keys(images).filter((imagePath) => {
@@ -10,7 +11,7 @@ const imagePaths = Object.keys(images).filter((imagePath) => {
 
 <section class="flex flex-col items-center justify-center w-full pb-10">
   <hr class="mb-10 w-10 border-slate-400" />
-      <img src="/src/assets/savethedate.png" alt="Save the Date Invitation" class="w-full max-w-3xl rounded-lg pl-10 pr-1">
+      <Image src={saveTheDate} alt="Save the Date Invitation" class="w-full max-w-3xl rounded-lg pl-10 pr-1" />
   </section>
 <section
   class="flex flex-col items-center justify-center gap-1 bg-[#fdf8f2] py-10"

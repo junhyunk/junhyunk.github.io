@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { account } from "../constants";
+import copyIcon from "../assets/icon/copy.png";
 ---
 
 <section class="fade-in flex flex-col items-center justify-center py-10 bg-white border border-gray-200 gap-1 mb-10">
@@ -25,9 +27,9 @@ import { account } from "../constants";
               <span class="font-medium">{name}</span>
               <span>|</span>
               <span>{account}</span>
-              <img
+              <Image
                 id={account}
-                src="/src/assets/icon/copy.png"
+                src={copyIcon}
                 alt="복사"
                 class="w-4 h-4 inline-block align-middle cursor-pointer"
               />
@@ -45,9 +47,9 @@ import { account } from "../constants";
               <span class="font-medium">{name}</span>
               <span>|</span>
               <span>{account}</span>
-              <img
+              <Image
                 id={account}
-                src="/src/assets/icon/copy.png"
+                src={copyIcon}
                 alt="복사"
                 class="w-4 h-4 inline-block align-middle cursor-pointer"
               />
