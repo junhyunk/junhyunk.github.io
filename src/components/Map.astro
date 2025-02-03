@@ -1,4 +1,10 @@
-
+---
+import { Image } from "astro:assets";
+import naverMap from "../assets/icon/navermap.png";
+import kakaoMap from "../assets/icon/kakaomap.svg";
+import tMap from "../assets/icon/tmap.svg";
+import copyIcon from "../assets/icon/copy.png";
+---
 <!-- Kakao Map을 표시할 영역 -->
 
 
@@ -8,7 +14,7 @@
     <h2 class=" py-3 text-center text-base">파크루안 역삼점 B1 가든웨딩</h2>
     <p class="text-sm font-light ">서울시 강남구 역삼동 726번지 아세아타워B1
         <button onclick="copyAddress()" class="inline-block align-middle w-4 h-4 pb-5 ">
-        <img id="copyIcon" src="/src/assets/icon/copy.png" alt="복사" > 
+        <Image id="copyIcon" src={copyIcon} alt="복사" />
     </button></p>
     <p class="text-sm font-light pb-3">(도로명주소 : 서울시 강남구 논현로 430)</p>
     <div id="map" class="w-full h-96 p-10"></div>
@@ -16,19 +22,19 @@
         <!-- 네이버 지도 -->
         <a href="https://map.naver.com/v5/directions/-/14137938.9069623,4507370.6303038,%ED%8C%8C%ED%81%AC%EB%A3%A8%EC%95%88%20%EC%97%AD%EC%82%BC%EC%A0%90,B1%20%EA%B0%80%EB%93%A0%EC%9B%A8%EB%94%A9,18703260,PLACE_POI/-/transit?c=15,0,0,0,dh"
            target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-green-600 hover:border-green-500 transition">
-            <img src="/src/assets/icon/navermap.png" alt="네이버 지도" class="w-5 h-5"> 네이버 지도
+            <Image src={naverMap} alt="네이버 지도" class="w-5 h-5" /> 네이버 지도
         </a>
 
         <!-- 카카오 내비 -->
         <a href="https://map.kakao.com/link/to/파크루안 역삼점,37.499052,127.038348"
            target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-yellow-600 hover:border-yellow-500 transition">
-            <img src="/src/assets/icon/kakaomap.svg" alt="카카오 내비" class="w-5 h-5"> 카카오 내비
+            <Image src={kakaoMap} alt="카카오 내비" class="w-5 h-5" /> 카카오 내비
         </a>
 
         <!-- 티맵 -->
         <a href="https://tmap.life/72a7570c"
            target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-blue-600 hover:border-blue-500 transition">
-            <img src="/src/assets/icon/tmap.svg" alt="티맵" class="w-5 h-5"> 티맵
+            <Image src={tMap} alt="티맵" class="w-5 h-5" /> 티맵
         </a>
     </div>
     <div class="w-full max-w-xl">
