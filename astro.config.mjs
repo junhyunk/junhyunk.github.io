@@ -4,16 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-    vite: {
-        server: {
-            proxy: {
-                '/api': {
-                    target: 'http://localhost:8080',
-                    changeOrigin: true,
-                },
-            },
-        },
-    },
+    site: "https://junhyunk.github.io",
     integrations: [tailwind()],
     devToolbar: {
         enabled: false,

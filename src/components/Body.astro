@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import profile1 from "../assets/profile/profile1.png";
+import profile2 from "../assets/profile/profile2.png";
 
 ---
 
@@ -16,16 +19,16 @@
   <hr class="m-10 w-10 border-slate-400" />
   <div class="flex gap-10">
     <div class="flex flex-col items-center">
-      <img src="/src/assets/profile/profile1.png" alt="김준현" class="pl-3" />
+      <Image src={profile1} alt="김준현" class="pl-3" />
       <br />
       <p class="font-medium pl-3">김준현</p>
-      <p class=" pl-3">김장헌 · 이영희의 아들</p>
+      <p class="pl-3">김장헌 · 이영희의 아들</p>
     </div>
     <div class="flex flex-col items-center">
-      <img src="/src/assets/profile/profile2.png" alt="김가림" class="pr-3" />
+      <Image src={profile2} alt="김가림" class="pr-3" />
       <br />
       <p class="font-medium pr-3">김가림</p>
-      <p class="  pr-3">김영기 · 황진의 딸</p>
+      <p class="pr-3">김영기 · 황진의 딸</p>
     </div>
   </div>
 
