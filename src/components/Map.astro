@@ -165,13 +165,13 @@ import copyIcon from "../assets/icon/copy.png";
         const address = "서울시 강남구 역삼동 726번지 아세아타워B1";
         navigator.clipboard.writeText(address).then(() => {
             const copyIcon = document.getElementById("copyIcon");
-            copyIcon.src = "/src/assets/icon/check.png";  
+            copyIcon.src = "/icon/check.png"; // 복사 완료 아이콘 변경
             copyIcon.alt = "복사 완료";
 
              
             setTimeout(() => {
-            copyIcon.src = "/src/assets/icon/copy.png";
-            copyIcon.alt = "복사";
+              copyIcon.src = "/icon/copy.png";
+              copyIcon.alt = "복사";
             }, 1500);
         }).catch(err => {
             console.error("복사 실패:", err);

@@ -71,12 +71,12 @@ import copyIcon from "../assets/icon/copy.png";
       window.copy(ev.target.id); // ✅ `copy()` 대신 `window.copy()` 사용
 
       // ✅ 클릭한 아이콘 변경
-      ev.target.src = "/src/assets/icon/check.png";
+      ev.target.src = "/icon/check.png";
       ev.target.alt = "복사 완료";
 
       // ✅ 1.5초 후 다시 원래 아이콘으로 변경
       setTimeout(() => {
-        ev.target.src = "/src/assets/icon/copy.png";
+        ev.target.src = "/icon/check.png";
         ev.target.alt = "복사";
       }, 1500);
     }
