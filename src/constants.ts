@@ -21,7 +21,7 @@ export const account = [
     },
     {
       name: "황ㅤ진",
-      account: "국민은행 36300104046061",
+      account: "우리은행 324-07-071460",
       group: "김가림",
     }
   ];
