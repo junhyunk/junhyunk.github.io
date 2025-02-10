@@ -1,7 +1,7 @@
 export const account = [
     {
       name: "김준현",
-      account: "카카오뱅크 3333-01-2435859",
+      account: "신한은행 110-278-666554",
       group: "김준현",
     },
     {
