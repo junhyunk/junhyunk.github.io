@@ -9,68 +9,114 @@ import copyIcon from "../assets/icon/copy.png";
 
 
 <section class="fade-in flex flex-col items-center justify-center gap-1 py-10">
-    <span class="text-sm font-light text-slate-400">location</span>
-    <p class="text-xl font-medium">오시는 길</p>
-    <h2 class=" py-3 text-center text-base">파크루안 역삼점 B1 가든웨딩</h2>
-    <p class="text-sm font-light ">서울시 강남구 역삼동 726번지 아세아타워B1
-        <button onclick="copyAddress()" class="inline-block align-middle w-4 h-4 pb-5 ">
-        <Image id="copyIcon" src={copyIcon} alt="복사" />
-    </button></p>
-    <p class="text-sm font-light pb-3">(도로명주소 : 서울시 강남구 논현로 430)</p>
-    <div id="map" class="w-full h-96 p-10"></div>
-    <div class="flex justify-center gap-3 mt-3">
-        <!-- 네이버 지도 -->
-        <a href="https://map.naver.com/v5/directions/-/14137938.9069623,4507370.6303038,%ED%8C%8C%ED%81%AC%EB%A3%A8%EC%95%88%20%EC%97%AD%EC%82%BC%EC%A0%90,B1%20%EA%B0%80%EB%93%A0%EC%9B%A8%EB%94%A9,18703260,PLACE_POI/-/transit?c=15,0,0,0,dh"
-           target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-green-600 hover:border-green-500 transition">
-            <Image src={naverMap} alt="네이버 지도" class="w-5 h-5" /> 네이버 지도
-        </a>
+  <span class="text-sm font-light text-slate-400">location</span>
+  <p class="text-xl font-medium">오시는 길</p>
+  <h2 class=" py-3 text-center text-base">파크루안 역삼점 B1 가든웨딩</h2>
+  <p class="text-sm font-light ">서울시 강남구 역삼동 726번지 아세아타워B1
+    <button onclick="copyAddress();" class="inline-block align-middle w-4 h-4 pb-5 ">
+      <Image id="copyIcon" src={copyIcon} alt="복사" />
+    </button>
+  </p>
+  <p class="text-sm font-light pb-3">(도로명주소 : 서울시 강남구 논현로 430)</p>
+  <div id="map" class="w-full h-96 p-10"></div>
+  <div class="flex justify-center gap-3 mt-3">
+    <!-- 네이버 지도 -->
+    <a id="naverMapLink"
+       target="_blank"
+       class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-green-600 hover:border-green-500 transition">
+      <Image src={naverMap} alt="네이버 지도" class="w-5 h-5" />
+      네이버 지도
+    </a>
 
-        <!-- 카카오 내비 -->
-        <a href="https://map.kakao.com/link/to/파크루안 역삼점,37.499052,127.038348"
-           target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-yellow-600 hover:border-yellow-500 transition">
-            <Image src={kakaoMap} alt="카카오 내비" class="w-5 h-5" /> 카카오 내비
-        </a>
+    <!-- 카카오 내비 -->
+    <a id="kakaoMapLink"
+       target="_blank"
+       class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-yellow-600 hover:border-yellow-500 transition">
+      <Image src={kakaoMap} alt="카카오 내비" class="w-5 h-5" />
+      카카오 내비
+    </a>
 
-        <!-- 티맵 -->
-        <a href="https://tmap.life/72a7570c"
-           target="_blank" class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-blue-600 hover:border-blue-500 transition">
-            <Image src={tMap} alt="티맵" class="w-5 h-5" /> 티맵
-        </a>
-    </div>
-    <div class="w-full max-w-xl">
-        <!-- 교통수단 카드 -->
-        <div class="flex flex-col gap-4  mb-5">
+    <!-- 티맵 -->
+    <a href="https://tmap.life/72a7570c"
+       target="_blank"
+       class="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:text-blue-600 hover:border-blue-500 transition">
+      <Image src={tMap} alt="티맵" class="w-5 h-5" />
+      티맵
+    </a>
+  </div>
+  <div class="w-full max-w-xl">
+    <!-- 교통수단 카드 -->
+    <div class="flex flex-col gap-4  mb-5">
 
-            <div class="p-4 rounded-lg ">
-                <div class="flex items-center">
-                    <h4 class="text-gray-700 font-medium">🚗ㅤ자가용</h4>
-                </div>
-                <p class="text-sm text-gray-600 pl-5">
-                    ㅤ아세아타워 건물 내 주차 가능 (3시간 무료)
-                </p>
-                <div class="pb-3"></div>
-                <div class="flex items-center">
-                    <h4 class="text-gray-700 font-medium">🚆ㅤ지하철</h4>
-                </div>
-                <p class="text-sm text-gray-600 pl-5">
-                    ㅤ2호선 역삼역 1번 출구에서 도보 3분이내
-                </p>
-                <div class="pb-3"></div>
-                <div class="flex items-center">
-                    <h4 class="text-gray-700 font-medium">🚎ㅤ버스 </h4>
-                </div>
-                <p class="text-sm text-gray-600 pl-5">
-                    ㅤ간선 147, 242, 463 / 지선 4211
-                </p>
-            </div>
+      <div class="p-4 rounded-lg ">
+        <div class="flex items-center">
+          <h4 class="text-gray-700 font-medium">🚗ㅤ자가용</h4>
         </div>
+        <p class="text-sm text-gray-600 pl-5">
+          ㅤ아세아타워 건물 내 주차 가능 (3시간 무료)
+        </p>
+        <div class="pb-3"></div>
+        <div class="flex items-center">
+          <h4 class="text-gray-700 font-medium">🚆ㅤ지하철</h4>
+        </div>
+        <p class="text-sm text-gray-600 pl-5">
+          ㅤ2호선 역삼역 1번 출구에서 도보 3분이내
+        </p>
+        <div class="pb-3"></div>
+        <div class="flex items-center">
+          <h4 class="text-gray-700 font-medium">🚎ㅤ버스 </h4>
+        </div>
+        <p class="text-sm text-gray-600 pl-5">
+          ㅤ간선 147, 242, 463 / 지선 4211
+        </p>
+      </div>
     </div>
-    
+  </div>
+  <style>
+      #map {
+          width: 100%;
+          height: 400px;
+      }
+      a:hover {
+          cursor: pointer
+      }
+  </style>
 </section>
 
 
 <script>
-    
+  document.getElementById("naverMapLink")?.addEventListener("click", function(event) {
+    event.preventDefault();
+    const appLink = "nmap://route/public?dlat=37.5009789&dlng=127.0360665&dname=파크루안%20역삼점&appname=com.invitation.app";
+    const webLink = "https://map.naver.com/p/directions/-/14137938.9069623,4507370.6303038,%ED%8C%8C%ED%81%AC%EB%A3%A8%EC%95%88%20%EC%97%AD%EC%82%BC%EC%A0%90,B1%20%EA%B0%80%EB%93%A0%EC%9B%A8%EB%94%A9,18703260,PLACE_POI/-/transit?c=15.00,0,0,0,dh";
+    let hidden = false;
+    window.location.href = appLink;
+    document.addEventListener("visibilitychange", function() {
+      hidden = true;
+    });
+    setTimeout(() => {
+      if (!hidden) {
+        window.location.href = webLink;
+      }
+    }, 1000);
+  });
+
+  document.getElementById("kakaoMapLink")?.addEventListener("click", function(event) {
+    event.preventDefault();
+    const appLink = "kakaomap://route?ep=37.5009789,127.0360665&en=파크루안%20역삼점&by=car";
+    const webLink = "https://map.kakao.com/link/to/파크루안%20역삼점,37.499052,127.038348";
+    let hidden = false;
+    window.location.href = appLink;
+    document.addEventListener("visibilitychange", function() {
+      hidden = true;
+    });
+    setTimeout(() => {
+      if (!hidden) {
+        window.location.href = webLink;
+      }
+    }, 1000);
+  });
+
   function loadKakaoMap() {
 
     const script = document.createElement("script");
@@ -104,15 +150,13 @@ import copyIcon from "../assets/icon/copy.png";
       return;
     }
 
-    
 
     // 🚨 API가 완전히 로드된 후 LatLng 생성
     //const center = new window.kakao.maps.LatLng(37.499052, 127.038348);
     //const options = {
-      //center: center,
-      //level: 3,
+    //center: center,
+    //level: 3,
     //};
-
 
 
     //new window.kakao.maps.Map(container, options);
@@ -121,7 +165,7 @@ import copyIcon from "../assets/icon/copy.png";
 
     const options = {
       center: targetPosition, // 지도 중심을 마커 위치로 설정
-      level: 3,
+      level: 3
     };
 
     const map = new window.kakao.maps.Map(container, options);
@@ -150,45 +194,38 @@ import copyIcon from "../assets/icon/copy.png";
 
     // 커스텀 오버레이를 생성합니다
     var customOverlay = new kakao.maps.CustomOverlay({
-        map: map,
-        position: position,
-        content: content,
-        yAnchor: 1 
+      map: map,
+      position: position,
+      content: content,
+      yAnchor: 1
     });
 
 
   }
-    loadKakaoMap();
-    
-    document.addEventListener("DOMContentLoaded", () => {
-        function copyAddress() {
-        const address = "서울시 강남구 역삼동 726번지 아세아타워B1";
-        navigator.clipboard.writeText(address).then(() => {
-            const copyIcon = document.getElementById("copyIcon");
-            copyIcon.src = "/icon/check.png"; // 복사 완료 아이콘 변경
-            copyIcon.alt = "복사 완료";
 
-             
-            setTimeout(() => {
-              copyIcon.src = "/icon/copy.png";
-              copyIcon.alt = "복사";
-            }, 1500);
-        }).catch(err => {
-            console.error("복사 실패:", err);
-            alert("복사에 실패했습니다. 다시 시도해주세요.");
-        });
-        }
+  loadKakaoMap();
 
-        window.copyAddress = copyAddress;
+  document.addEventListener("DOMContentLoaded", () => {
+    function copyAddress() {
+      const address = "서울시 강남구 역삼동 726번지 아세아타워B1";
+      navigator.clipboard.writeText(address).then(() => {
+        const copyIcon = document.getElementById("copyIcon");
+        copyIcon.src = "/icon/check.png"; // 복사 완료 아이콘 변경
+        copyIcon.alt = "복사 완료";
+
+
+        setTimeout(() => {
+          copyIcon.src = "/icon/copy.png";
+          copyIcon.alt = "복사";
+        }, 1500);
+      }).catch(err => {
+        console.error("복사 실패:", err);
+        alert("복사에 실패했습니다. 다시 시도해주세요.");
+      });
+    }
+
+    window.copyAddress = copyAddress;
   });
 
 
 </script>
-
-<style>
-  #map {
-    width: 100%;
-    height: 400px;
-  }
-
-</style>
